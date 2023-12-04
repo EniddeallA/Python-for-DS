@@ -1,18 +1,19 @@
 import matplotlib.pyplot as plt
-import matplotlib.image as img
-from numpy import ndarray
+from PIL import Image
+import numpy as np
 from pimp_image import ft_invert, ft_red, ft_green, ft_blue, ft_grey
 
-def ft_load(path: str) -> ndarray:
+def ft_load(path):
     try:
-        image = img.imread(path)
+        image = Image.open(path)
     except FileNotFoundError:
         return f"File {path} not found"
-    print(f"The shape of the image is: {image.shape}")
-    print(image)
-    return image
+    # print(f"The shape of the image is: {image.shape}")
+    ar = np.array(image)
+    print (ar)
+    return ar
 
-array = ft_load("landscape.jpeg")
+array = ft_load("/Users/akhalid/Desktop/Python-for-DS/day01/ex05/landscape.jpg")
 ft_invert(array)
 ft_red(array)
 ft_green(array)
