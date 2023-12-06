@@ -19,4 +19,4 @@ if len(sys.argv) == 2:
 elif len(sys.argv) == 1:
     pass  # Do nothing if no arguments are provided
 else:
-    print("AssertionError: more than one argument is provided")
+    print("AssertionError: more than one argument are provided")
