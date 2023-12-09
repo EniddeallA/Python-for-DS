@@ -8,9 +8,6 @@ def rotate(path: str):
     This function loads an image from the given path,
     slices it, transposes it, and then displays and
     saves the transposed image.
-
-    Parameters:
-    path (str): The path of the image file.
     """
     image = ft_load(path)
     s = image[100:500, 450:850, :3]
@@ -19,7 +16,7 @@ def rotate(path: str):
     plt.imshow(transpose)
     print(f"The new shape of the image after transpose is: {transpose.shape}")
     print(transpose)
-    plt.savefig("sliced_image.png")
+    plt.savefig("rotated_image.png")
     plt.show()
 
 

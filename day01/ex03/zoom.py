@@ -6,13 +6,11 @@ def zoom(path: str):
     """
     This function loads an image from the given path, slices it,
     and then displays and saves the sliced image.
-
-    Parameters:
-    path (str): The path of the image file.
     """
     image = ft_load(path)
     sliced_image = image[100:500, 450:850, :3]
     print(f"The new shape of the image after slicing is: {sliced_image.shape}")
+    print(sliced_image)
     plt.imshow(sliced_image)
     plt.savefig("sliced_image.png")
     plt.show()

@@ -4,8 +4,7 @@ import matplotlib.pyplot as plt
 def ft_load(path):
     """
     This function loads an image from the given path
-    and prints its pixel values.
-    It also returns the shape of the image.
+    and prints its shape and pixel values.
     """
     try:
         if path.split(".")[-1] == "jpg" or path.split(".")[-1] == "jpeg":
