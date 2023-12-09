@@ -1,14 +1,19 @@
-import numpy as np
-from PIL import Image
+import matplotlib.pyplot as plt
 
 
-def ft_load(path: str) -> str:
+def ft_load(path):
+    """
+    This function loads an image from the given path
+    and prints its pixel values.
+    It also returns the shape of the image.
+    """
     try:
-        img = Image.open(path, 'r')
+        if path.split(".")[-1] == "jpg" or path.split(".")[-1] == "jpeg":
+            image = plt.imread(path)
+            print(f"The shape of the image is: {image.shape}")
+            print(image)
+            return image
+        else:
+            exit(f"File {path} is not a valid image file")
     except FileNotFoundError:
-        return f"File {path} not found"
-    w, h = img.size
-    pixel_values = list(img.getdata())
-    shape = np.array(pixel_values).reshape((w, h, 3))
-    print(pixel_values)
-    return f"The shape of image is: {shape.shape}"
+        exit(f"File {path} not found")

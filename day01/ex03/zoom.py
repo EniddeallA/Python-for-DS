@@ -1,11 +1,16 @@
 import matplotlib.pyplot as plt
-import matplotlib.image as img
+from load_image import ft_load
 
 
 def zoom(path: str):
-    image = img.imread(path)
-    print(f"The shape of the image is: {image.shape}")
-    print(image)
+    """
+    This function loads an image from the given path, slices it,
+    and then displays and saves the sliced image.
+
+    Parameters:
+    path (str): The path of the image file.
+    """
+    image = ft_load(path)
     sliced_image = image[100:500, 450:850, :3]
     print(f"The new shape of the image after slicing is: {sliced_image.shape}")
     plt.imshow(sliced_image)
