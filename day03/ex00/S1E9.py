@@ -1,25 +1,43 @@
-from abc import ABC, abstractmethod 
+from abc import ABC, abstractmethod
+
 
 class Character(ABC):
-    """Your docstring for Class"""
-    def __init__(self, name, is_alive=True):
-        """Your docstring for Constructor"""
-        self.name = name
+    """Class Character"""
+    def __init__(self, first_name, is_alive=True):
+        """Constructor of Character"""
+        self.first_name = first_name
         self.is_alive = is_alive
 
     @abstractmethod
     def die(self):
-        """Your docstring for Method"""
-        pass
+        """Function to kill Character"""
+        self.is_alive = False
+
 
 class Stark(Character):
-    """Your docstring for Class"""
-    def __init__(self, name, is_alive=True):
-        """Your docstring for Constructor"""
-        super().__init__(self)
-        self.name = name
-        self.is_alive = is_alive
+    """Class Stark"""
+    def __init__(self, first_name=None, is_alive=True):
+        """Constructor of Stark"""
+        super().__init__(first_name, is_alive)
 
     def die(self):
-        """Your docstring for Method"""
+        """Method to kill Stark"""
         self.is_alive = False
+
+
+def main():
+    Ned = Stark("Ned")
+    print(Ned.__dict__)
+    print(Ned.is_alive)
+    Ned.die()
+    print(Ned.is_alive)
+    print(Ned.__doc__)
+    print(Ned.__init__.__doc__)
+    print(Ned.die.__doc__)
+    print("---")
+    Lyanna = Stark("Lyanna", False)
+    print(Lyanna.__dict__)
+
+
+if __name__ == "__main__":
+    main()
