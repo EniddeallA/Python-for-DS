@@ -1,15 +1,14 @@
 from load_csv import load
 import matplotlib.pyplot as plt
-import pandas as pd
 import numpy as np
 
 
 def prepare_data(df, country):
     """Returns a Series containing the population of the given country"""
-    try :
+    try:
         data = df.loc[df["country"] == country].drop(columns=["country"]).T
     except KeyError:
-        exit("Column 'country' not found") 
+        exit("Column 'country' not found")
     data = data.replace({'M': '', 'k': ''}, regex=True)
     data.index = data.index.astype(int)
     data = data.squeeze().astype(float)
