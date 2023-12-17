@@ -8,7 +8,7 @@ def load(path: str) -> pd.DataFrame:
     if (check_path[-1] != "csv" or len(check_path) == 1):
         exit(f"File {path} is not a valid csv file")
     try:
-        df = pd.read_csv(path)
+        df = pd.read_csv(path, index_col="country")
         print(f"Loading dataset of dimensions ({df.shape[0]}, {df.shape[1]})")
         return df
     except FileNotFoundError:
@@ -18,8 +18,7 @@ def load(path: str) -> pd.DataFrame:
 
 
 def main():
-    data = load("life_expectancy_years.csv")
-    print(data)
+    print(load("life_expectancy_years.csv"))
 
 
 if __name__ == "__main__":

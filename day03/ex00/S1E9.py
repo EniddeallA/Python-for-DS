@@ -11,7 +11,7 @@ class Character(ABC):
     @abstractmethod
     def die(self):
         """Function to kill Character"""
-        self.is_alive = False
+        pass
 
 
 class Stark(Character):

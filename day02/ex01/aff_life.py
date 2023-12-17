@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def aff_life():
-    """Plot the life expectancy in Morocco from 1960 to 2015."""
+    """Plot the life expectancy in Morocco."""
     df = load("life_expectancy_years.csv")
     try:
         data = df.loc[df["country"] == "Morocco"]
@@ -15,6 +15,7 @@ def aff_life():
     plt.xlabel("Year")
     plt.ylabel("Life expectancy")
     plt.legend(["Morocco"])
+    plt.xticks(data.index[::40])
     plt.show()
 
 

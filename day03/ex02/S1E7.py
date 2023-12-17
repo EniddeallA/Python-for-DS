@@ -14,14 +14,6 @@ class Baratheon(Character):
         """Method to kill Baratheon"""
         self.is_alive = False
 
-    def __str__(self):
-        return f"<bound method {self.__name__}.__str__ of Vector:\
-('{self.first_name}', '{self.eyes}', '{self.hairs}')>"
-
-    def __repr__(self):
-        return f"<bound method Baratheon.__repr__ of Vector:\
-('{self.first_name}', '{self.eyes}', '{self.hairs}')>"
-
 
 class Lannister(Character):
     """Class Lannister"""
@@ -32,22 +24,14 @@ class Lannister(Character):
         self.eyes = "blue"
         self.hairs = "light"
 
-    @classmethod
-    def create_lannister(cls, first_name, is_alive=True):
-        """Method to create Lannister"""
-        return Lannister(first_name, is_alive)
-
     def die(self):
         """Method to kill Lannister"""
         self.is_alive = False
 
-    def __str__(self):
-        return f"<bound method Lannister.__str__ of Vector:\
-('{self.first_name}', '{self.eyes}', '{self.hairs}')>"
-
-    def __repr__(self):
-        return f"<bound method Lannister.__repr__ of Vector:\
-('{self.first_name}', '{self.eyes}', '{self.hairs}')>"
+    @classmethod
+    def create_lannister(cls, first_name, is_alive=True):
+        """Method to create Lannister"""
+        return Lannister(first_name, is_alive)
 
 
 def main():

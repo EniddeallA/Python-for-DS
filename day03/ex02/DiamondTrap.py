@@ -30,14 +30,6 @@ class King(Baratheon, Lannister):
         """Method to get hairs color"""
         return self.hairs
 
-    def __str__(self):
-        return f"<bound method King.__str__ of Vector:\
-('{self.first_name}', '{self.eyes}', '{self.hairs}')>"
-
-    def __repr__(self):
-        return f"<bound method King.__repr__ of Vector:\
-('{self.first_name}', '{self.eyes}', '{self.hairs}')>"
-
 
 def main():
     Joffrey = King("Joffrey")

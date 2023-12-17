@@ -11,7 +11,15 @@ class Character(ABC):
     @abstractmethod
     def die(self):
         """Function to kill Character"""
-        self.is_alive = False
+        pass
+
+    def __str__(self):
+        return f"<bound method {self.__class__.__name__}.__str__ of Vector:\
+('{self.family_name}', '{self.eyes}', '{self.hairs}')>"
+
+    def __repr__(self):
+        return f"<bound method {self.__class__.__name__}.__repr__ of Vector:\
+('{self.family_name}', '{self.eyes}', '{self.hairs}')>"
 
 
 class Stark(Character):

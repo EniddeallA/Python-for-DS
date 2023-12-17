@@ -10,8 +10,13 @@ def prepare_data(df, country):
     except KeyError:
         exit("Column 'country' not found")
     data = data.replace({'M': '', 'k': ''}, regex=True)
+    # print(data.index)
     data.index = data.index.astype(int)
+    # print(data.index)
+    print("-----")
+    print(data)
     data = data.squeeze().astype(float)
+    print(data)
     return data.loc[1800:2050]
 
 
@@ -23,13 +28,10 @@ def plot_data(morocco_data, france_data):
     plt.xlabel("Year")
     plt.ylabel("Population")
     plt.legend()
-
     plt.xticks(morocco_data.index[::40])
-
-    y_ticks = np.arange(20000000, france_data.dropna().max(), 20000000)
-    y_labels = [f'{int(x/1e6)}M' for x in y_ticks]
+    y_ticks = np.arange(20, max(france_data), 20)
+    y_labels = [f'{int(x)}M' for x in y_ticks]
     plt.yticks(y_ticks, y_labels)
-
     plt.show()
 
 
